@@ -1,0 +1,46 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Test / coverage
+.pytest_cache/
+.coverage*
+coverage.xml
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Packaging
+*.tar.gz
+
+# Type checking / linting caches
+.mypy_cache/
+.ruff_cache/
+
+# Packaging metadata
+pip-wheel-metadata/
+*.egg-info/
+
+# Logs
+*.log
+
+# Misc
+DS_Store
+.DS_Store
+.env*
