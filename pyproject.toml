@@ -12,7 +12,6 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
 dependencies = [
@@ -21,23 +20,24 @@ dependencies = [
 ]
 description = "Lightweight semantic version + changelog manager"
 keywords = ["changelog", "semantic versioning", "release", "automation"]
-license = {text = "MIT"}
+license = "MIT"
 name = "autochange"
 readme = "README.md"
 requires-python = ">=3.8"
 version = "0.1.1"
 
 [project.urls]
-Changelog = "https://github.com/clxrityy/autochange/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/clxrityy/autochange/blob/master/CHANGELOG.md"
 Homepage = "https://github.com/clxrityy/autochange"
 Issues = "https://github.com/clxrityy/autochange/issues"
 Repository = "https://github.com/clxrityy/autochange.git"
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0.0", "pytest-cov"]
+dev = ["pytest>=7.0.0", "pytest-cov", "hypothesis>=6.0.0"]
 release = ["build", "twine"]
 
 [project.scripts]
+# Direct entry; console script will inject src path if needed
 autochange = "autochange.cli:app"
 
 [tool.setuptools.packages.find]
@@ -45,3 +45,7 @@ where = ["src"]
 
 [tool.setuptools]
 include-package-data = true
+py-modules = []
+
+[tool.setuptools.package-dir]
+"" = "src"
