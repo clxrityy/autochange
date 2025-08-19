@@ -1,4 +1,8 @@
 PYTHON ?= python
+VENV_PY := .venv/bin/python
+ifneq (,$(wildcard $(VENV_PY)))
+	PYTHON := $(VENV_PY)
+endif
 PACKAGE = autochange
 SRC_DIR = src
 
@@ -8,6 +12,7 @@ help:
 	@echo 'Common targets:'
 	@echo '  make install     - standard install (no extras)'
 	@echo '  make dev         - editable install with dev extras'
+	@echo '  make bootstrap   - create venv (if missing) + dev install'
 	@echo '  make test        - run pytest'
 	@echo '  make build       - build sdist & wheel'
 	@echo '  make release VER=X.Y.Z  - tag + build + upload (requires twine, sets version in pyproject)'
@@ -18,6 +23,10 @@ install:
 
 dev:
 	$(PYTHON) -m pip install -e '.[dev,release]'
+
+bootstrap:
+	@if [ ! -x $(VENV_PY) ]; then python3 -m venv .venv; fi
+	$(MAKE) dev
 
 TEST_ARGS ?=
 
