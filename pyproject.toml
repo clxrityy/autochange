@@ -20,7 +20,7 @@ dependencies = [
 ]
 description = "Lightweight semantic version + changelog manager"
 keywords = ["changelog", "semantic versioning", "release", "automation"]
-license = "MIT"
+license = {file = "LICENSE"}
 name = "autochange"
 readme = "README.md"
 requires-python = ">=3.8"
